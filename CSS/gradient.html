@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* height: 2000px; */
+            /* background-color: #FBFFE4; */
+            
+            /* 線性漸層 */
+            /* background-image: linear-gradient(to right,red 33%,blue 33%, blue 66%, yellow 66%); */
+            
+            /* 放射性漸層 */
+            /* background-image: radial-gradient(circle at right bottom,red , blue ); */
+
+            /* 錐形漸層 */
+            /* background-image: conic-gradient( red 33%, blue 33%, blue 66%, yellow 66%); */
+
+            /* background-image: repeating-linear-gradient(#B3D8A8 0px, #B3D8A8 20px , #FBFFE4 20px, #FBFFE4 40px); */
+
+            /* background-image: repeating-radial-gradient(circle,#B3D8A8 0px, #B3D8A8 20px , #FBFFE4 20px, #FBFFE4 40px); */
+
+            /* background-image: repeating-conic-gradient(red,blue); */
+
+            background-attachment: fixed;
+
+            /* background-image: linear-gradient( 111.9deg,  rgba(255,255,169,1) 0.2%, rgba(255,208,120,1) 14.1%, rgba(255,156,94,1) 27.4%, rgba(251,99,95,1) 41.4%, rgba(226,28,114,1) 55.8%, rgba(176,0,140,1) 70.2%, rgba(83,0,166,1) 84.1% ); */
+
+            background-image: 
+                repeating-linear-gradient(rgb(0 0 123 /.8) 0px, rgb(0 0 123 /.8) 1px, transparent 1px, transparent 2px),
+                url('https://picsum.photos/id/98/800/600');
+                
+            /* background-image: 
+                linear-gradient(rgba(255, 125, 222, 0.384) , rgba(125, 255, 147, 0.384)),
+                url('https://picsum.photos/id/98/800/600'); */
+            
+        }
+        .dot {
+            background-color:#001;
+            background-image: 
+                radial-gradient(white 15%, transparent 16%),
+                radial-gradient(white 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+        }
+        /* html {
+        --s: 100px; 
+        --c1: #336666;
+        --c2: #ffffff;
+        
+        --_g: #0000 90deg,var(--c1) 0;
+        background: 
+            conic-gradient(from 90deg at 2px 2px,var(--_g)),
+            conic-gradient(from 90deg at 1px 1px,var(--_g)),
+            var(--c2);
+        background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+
+        
+        } */
+    </style>
+</head>
+<body>
+    <h1 class="dot">漸層</h1>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime libero itaque quo tempore, animi, nulla voluptas exercitationem atque deserunt saepe doloremque, ut illo cum modi repellendus neque accusantium ipsa vero.
+    </p>
+</body>
+</html>

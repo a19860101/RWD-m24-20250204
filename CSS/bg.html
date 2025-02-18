@@ -13,7 +13,7 @@
 
         body {
             /* height: 600px; */
-            background-color: var(--clr-yellow);
+            background-color: var(--clr-red);
             background-image: url('https://picsum.photos/id/14/800/600');
             background-repeat: no-repeat;
             /* repeat, no-repeat, repeat-x, repeat-y, space, round */
@@ -25,6 +25,15 @@
             /* 
                 contain 等比例符合
                 cover 等比例填滿
+            */
+
+            background-blend-mode: hard-light;
+            /* 
+                overlay 覆蓋
+                screen 濾色
+                multiply 色彩增值
+                soft-light 柔光
+                hard-light 實光
             */
         }
     </style>
