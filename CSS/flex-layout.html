@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            /* --gap: 15px; */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            /* width: min(1200px, 100%); */
+            max-width: 1200px;
+            margin-inline: auto;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col {
+            flex: 1 0 0 ;
+        }
+        .col-1 {
+            /* width: 8.33% */
+            width: calc(100% / 12 * 1);
+        }
+        .col-2 {
+            width: calc(100% / 12 * 2);
+        }
+        .col-3 {
+            width: calc(100% / 12 * 3);
+        }
+        .col-4 {
+            width: calc(100% / 12 * 4);
+        }
+        .col-5 {
+            width: calc(100% / 12 * 5);
+        }
+        .col-6 {
+            width: calc(100% / 12 * 6);
+        }
+        .col-7 {
+            width: calc(100% / 12 * 7);
+        }
+        .col-8 {
+            width: calc(100% / 12 * 8);
+        }
+        .col-9 {
+            width: calc(100% / 12 * 9);
+        }
+        .col-10 {
+            width: calc(100% / 12 * 10);
+        }
+        .col-11 {
+            width: calc(100% / 12 * 11);
+        }
+        .col-12 {
+            width: calc(100% / 12 * 12);
+        }
+        .p-15 {
+            padding: 15px;
+        }
+        [class^="col"]{
+            /* padding: 15px; */
+        }
+        [class*="col"]{}
+        [class$="col"]{}
+        [class|="col"]{
+            padding: 15px;
+        }
+        .card {
+            background-color: #eee;
+        }
+        .card-body {
+            padding: 10px;
+        }
+        .cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .row .row [class|="col"]{
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container row">
+        <div class="col-2">
+            <ul>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+            </ul>
+        </div>
+        <div class="col-10 row">
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/id/22/400" alt="" class="cover">
+                    </div>
+                    <div class="card-body">
+                        <h3>product 1</h3>
+                        <div>
+                            $999
+                        </div>
+                        <a href="#">Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container row">
+        <div class="col">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquid ipsum nesciunt quam eveniet architecto consequuntur, id blanditiis necessitatibus magnam totam illo porro doloremque reprehenderit deserunt sint quas, assumenda in.
+            </p>
+        </div>
+        <div class="col">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquid ipsum nesciunt quam eveniet architecto consequuntur, id blanditiis necessitatibus magnam totam illo porro doloremque reprehenderit deserunt sint quas, assumenda in.
+            </p>
+        </div>
+        <div class="col">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquid ipsum nesciunt quam eveniet architecto consequuntur, id blanditiis necessitatibus magnam totam illo porro doloremque reprehenderit deserunt sint quas, assumenda in.
+            </p>
+        </div>
+        <div class="col">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquid ipsum nesciunt quam eveniet architecto consequuntur, id blanditiis necessitatibus magnam totam illo porro doloremque reprehenderit deserunt sint quas, assumenda in.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
