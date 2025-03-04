@@ -13,3 +13,7 @@ img {
 a {
     color: inherit;
 }
+h2 {
+    font-size: clamp(2.5rem,3vw,4rem);
+    margin-bottom: var(--grid-gap);
+}
