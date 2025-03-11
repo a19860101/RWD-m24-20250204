@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .card {
+            width: 200px;
+            height: 300px;
+            /* border: 1px solid #000; */
+            position: relative;
+            perspective: 800px;
+
+            .card-inner {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transition:rotate 1s,opacity 1s;
+                transform-origin: left;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .front {
+                background-color: #309bff;
+                opacity: 1;
+            }
+            .back {
+                background-color: #ffffff6b;
+                backdrop-filter: blur(8px);
+                rotate: y 320deg;
+                backface-visibility: hidden;
+                opacity: 0;
+                padding: 10px;
+            }
+            &:hover {
+                .front {
+                    rotate: y 10deg;
+                    /* opacity: 0; */
+                }            
+                .back {
+                    rotate: y 360deg;
+                    opacity: 1;
+                }
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-inner front">
+            <img src="https://picsum.photos/id/34/300" alt="">
+        </div>
+        <div class="card-inner back">
+            <h3>title</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, provident?
+            </p>
+        </div>
+    </div>
+</body>
+</html>
