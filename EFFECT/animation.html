@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #e04;
+
+            /* animation: move 2s infinite alternate forwards ease; */
+            /* animation-name: move; */
+            /* animation-duration: 2s; */
+            /* animation-delay: 0s; */
+            /* animation-iteration-count: infinite; */
+            /* animation-fill-mode: forwards; */
+            /* animation-direction:alternate; */
+            /* normal, reverse, alternate, alternate-reverse */
+            /* animation-timing-function: ease; */
+
+            /* animation: r 10s infinite steps(16); */
+        }
+        @keyframes r {
+            to {rotate: 360deg}
+        }
+        @keyframes move {
+            0% {}
+            25% {translate: 800px 400px}
+            50% {translate: 200px 600px}
+            75% {translate: 400px 100px}
+            100% {translate: 0 0}
+        }
+
+        @keyframes a1 {
+            from {translate: -400px 0;}
+            to {translate: 400px 0;}
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                scale: 0
+            }
+        }
+
+        @keyframes fade-out {
+            to {
+                opacity: 0;
+                scale:2;
+                rotate: 180deg
+            }
+        }
+
+        .box:hover {
+            animation: r 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

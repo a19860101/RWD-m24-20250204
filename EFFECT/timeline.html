@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            background-image: linear-gradient( 111.9deg,  rgba(255,255,169,1) 0.2%, rgba(255,208,120,1) 14.1%, rgba(255,156,94,1) 27.4%, rgba(251,99,95,1) 41.4%, rgba(226,28,114,1) 55.8%, rgba(176,0,140,1) 70.2%, rgba(83,0,166,1) 84.1% );
+            
+        }
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #f00;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: progress  linear;
+            animation-timeline: scroll();
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            background-color: #fff;
+            right: 30px;
+            bottom: 30px;
+            animation: r linear;
+            animation-timeline: scroll();
+        }
+        @keyframes progress {
+            to {
+                transform: scaleX(1);
+            }
+        }
+        @keyframes r {
+            to {
+                rotate: 720deg;
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress"></div>
+    <h1>
+        Timeline
+    </h1>
+    <div class="box"></div>
+</body>
+</html>
