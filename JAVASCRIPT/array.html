@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let foods = new Array();
+        // array[陣列索引]
+        // foods[0] = 'Apple';
+        // foods[1] = 'Banana';
+
+        // let foods = new Array('apple','banana','pineapple');
+
+        const foods = ['apple','banana','pineapple','coconut'];
+        // console.log(foods);
+
+        // console.log(foods[0]);
+        // console.log(foods[1]);
+        // console.log(foods[2]);
+        // let num = foods.length;
+        // console.log(num)
+        for(i=0;i<foods.length;i++){
+            console.log(foods[i]);
+        }
+
+        // for...in
+        for(let i in foods){
+            console.log(foods[i]);
+        }
+
+        // for...of
+        for(let f of foods){
+            console.log(f)
+        }
+    </script>
+</body>
+</html>

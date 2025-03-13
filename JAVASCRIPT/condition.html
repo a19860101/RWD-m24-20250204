@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = 21;
+
+        // if
+        if(x > 0){
+            console.log('正數');
+        }
+
+        //if...else
+        if(x > 0){
+            console.log('正數');
+        }else{
+            console.log('負數');
+        }
+
+        // if...else if
+        if(x > 0){
+            console.log('正數');
+        }else if(x < 0){
+            console.log('負數');
+        }
+
+        // if...else if...else
+        if(x > 0){
+            console.log('正數');
+        }else if(x < 0){
+            console.log('負數');
+        }else{
+            console.log('零')
+        }
+
+        // switch
+
+        switch(x){
+            case 0:
+                console.log(0);
+                break;
+            case 1:
+                console.log(1);
+                break;
+            case 2:
+                console.log(2);
+                break;
+            default:
+                console.log('都不符合');
+        }
+
+        let status = 1;
+
+        switch(status){
+            case 0:
+                console.log('提款成功');
+                break;
+            case 1:
+                console.log('餘額不足');
+                break;
+            case 2:
+                console.log('密碼錯誤');
+                break;
+            default:
+                console.log('不明錯誤 請聯絡管理員');
+
+        }
+
+        switch(true){
+            case x > 0:
+                console.log('正');
+                break;
+            case x < 0:
+                console.log('負');
+                break;
+        }
+
+        let score = 100;
+        if(score >= 85){
+            console.log('特優')
+        }else if(score >= 60){
+            console.log('尚可')
+        }else{
+            console.log('請多加油')
+        }
+
+        switch(true){
+            case score >= 85:
+                console.log('特優');
+                break;
+            case score >= 60:
+                console.log('尚可');
+                break;
+            default:
+                console.log('請多加油');
+        }
+    </script>
+</body>
+</html>
