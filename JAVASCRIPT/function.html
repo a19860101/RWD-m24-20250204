@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函式宣告式 function decalaration 提升性
+        console.log(foo())
+        function foo(){
+            return 'foo'
+        }
+        // 函示表達式 function expression
+        const foo2 = function(){
+            return 'foo2';
+        }
+
+
+        function area(w,h){
+            return w*h;
+        }
+
+        const area2 = function(w,h){
+            return w*h
+        }
+
+        // 箭頭函式 arrow function
+        // 基本寫法
+        const af1 = () => {
+            return 'af1'
+        }
+
+        // 變化一 當只有"一個"參數時 小括號可以省略
+        const af2 = x => {
+            return x
+        }
+        const af3 = (x,y) => {
+            return x*y;
+        }
+
+        //變化二 當動作只有return時 大括號跟return皆可省略
+        const af4 = (x,y) => x*y;
+        const af5 =  (x,y) => {
+            x = x + 2;
+            return x*y
+        }
+
+        const af6 = x => x;
+        console.log(af6(2222))
+
+        // 變化三 當只有return物件時 要在物件外加上小括號
+        const af7 = () => ({
+                data: 'af7'
+            })
+        
+        console.log(af7())
+
+        const arr = [2,7,1,5,8,6]
+        const arr2 = arr.toSorted((a,b)=> a-b );
+        console.log(arr2)
+    </script>
+</body>
+</html>

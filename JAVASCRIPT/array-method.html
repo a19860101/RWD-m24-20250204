@@ -20,6 +20,14 @@
                 name: '雞排',
                 price: 80
          
+            },
+            {
+                name: '珍珠奶茶',
+                price: 60
+            },
+            {
+                name:'紅茶',
+                price:30
             }
         ]
 
@@ -30,9 +38,8 @@
         // })
 
         // map
-        const foodName = foods.map(function(f){
-            return f.name;
-        })
+        const foodName = foods.map(f => f.name)
+        console.log(foodName);
         const foodPrice = foods.map(function(f){
             return f.price
         })
@@ -47,7 +54,115 @@
         const foodsUpdate = foods.filter(function(f){
             return f.name != '雞排';
         })
-        console.log(foodsUpdate)
+
+        // find 回傳符合條件的第一筆資料
+        const find_foods = foods.find(function(f){
+            // return f.name == '雞排';
+            // return f.price == 50
+            // return f.price == 20
+            return f.price >= 50
+        })
+
+        // findIndex 回傳符合條件的第一筆資料的索引值
+        const findIndex_foods = foods.findIndex(function(f){
+            return f.name == '牛肉麵'
+        })
+
+        // some 只要一個符合就回傳true
+        const some_foods = foods.some(function(f){
+            return f.price >= 100
+        })
+
+        // every 每一個都符合就回傳true
+        const every_foods = foods.every(function(f){
+            return f.price >= 0
+        })
+        
+        // reduce
+        const price = [10,200,30,40];
+        const reduce_foods = price.reduce(function(a,b){
+            return a + b ;
+            // console.log(a,b)
+        })
+        
+        // push()
+        foods.push({
+            name: '珍珠奶茶',
+            price: 60
+        });
+        // pop()
+        foods.pop()
+
+        // unshift()
+        foods.unshift({
+            name:'紅茶',
+            price:30
+        })
+
+        // shift()
+        foods.shift()
+
+        // slice() 切片
+        const foods_slice = foods.slice(2,5);
+        
+        // splice() 拼接
+        // foods.splice(1,1,{name:'炸醬麵',price:50})
+        // foods.splice(3,1)
+
+        // toString() 陣列轉字串
+        const drinks = ['紅茶','綠茶','珍珠奶茶','冰淇淋紅茶']
+        const drinks_string = drinks.toString();
+        
+        // join() 陣列轉字串
+        const drinks_join = drinks.join('_');
+
+        // split() 字串轉陣列
+        const drinks_array = drinks_string.split(',');
+        const drinks_array_2 = drinks_join.split('_');
+
+        // sort() 排序 
+        const arr = [1,5,2,8,6];
+        const arr2 = ['a','c','e','b','d']
+        const dateArray = ['2025-03-18','2025-02-22','2025-01-03']
+        // console.log(dateArray.sort())
+        foods.sort(function(b,a){
+            return a.price - b.price
+        })
+
+        // toSorted() 排序 不影響原陣列 會回傳一個新陣列
+        const arr_new = arr.toSorted(function(b,a){
+            return a-b;
+        });
+
+        // reverse()
+        arr.sort().reverse();
+
+        // hello -> olleh
+        const t = 'hello';
+        const result = t.split('').reverse().join('');
+
+        // includes() 判斷是否包含 有則回傳true
+        const arr_includes = arr.includes(0)
+        console.log(arr_includes)
+
+        // indexOf() 判斷資料的索引值 如果不存在就回傳-1
+        console.log(arr)
+        const arr_indexOf = arr.indexOf(8)
+        console.log(arr_indexOf)
+
+        const mySet = new Set([1,2,2,2,2,3])
+        // const mySetArray = Array.from(mySet)
+        // spread operator
+        // const mySetArray = [...arr,...mySet]
+        // const mySetArray = [arr,...mySet].flat()
+        // console.log(mySetArray)
+
+        // const newArray = arr.concat(mySetArray)
+        // console.log(newArray)
+
+        const arr3 = [[1,2],[3,4,5],6].flat()
+        const arr4 = [[1,2],[3,4,5],6,[7,[8,[9]]]].flat()
+        console.log(arr4)
     </script>
 </body>
 </html>
