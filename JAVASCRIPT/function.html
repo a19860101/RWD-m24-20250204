@@ -60,6 +60,21 @@
         const arr = [2,7,1,5,8,6]
         const arr2 = arr.toSorted((a,b)=> a-b );
         console.log(arr2)
+
+
+        // this的差異
+        const user1 = {
+            name: 'user1',
+            foo:function(){
+                return this;
+            }
+        } 
+        console.log(user1.foo())
+        const user2 = {
+            name:'user2',
+            foo:() => this
+        }
+        console.log(user2.foo())
     </script>
 </body>
 </html>

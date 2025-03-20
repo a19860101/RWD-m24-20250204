@@ -36,12 +36,16 @@
         let thumbnails = document.querySelectorAll('.thumbnail')
         let main = document.querySelector('.main');
         for(let thumb of thumbnails){
-            thumb.onclick = function(){
-                let path = this.getAttribute('src');
-                // console.log(src);
+            thumb.onclick = function(e){
+                // let path = this.getAttribute('src');
+                let path = e.target.getAttribute('src');
                 main.setAttribute('src',path);
 
             }
+            // thumb.onclick = event => {
+            //     let path = event.target.getAttribute('src');
+            //     main.setAttribute('src',path);
+            // }
         }
     </script>
 </body>

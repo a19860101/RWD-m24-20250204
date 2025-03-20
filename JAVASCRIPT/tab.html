@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        .tab {
+            width: 600px;
+            margin-inline: auto;
+        }
+        .tab-nav {
+            display: flex;
+            background-color: #ffd271;
+            .tab-link {
+                text-decoration: none;
+                color: #000;
+                padding: 12px;
+                &.active {
+                    background-color: #86edff;
+                }
+            }
+        }
+        .tab-panel {
+            background-color: #ffd271;
+            padding: 12px;
+            display: none;
+            &.active {
+                background-color: #86edff;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab-nav">
+            <a href="#" class="tab-link active">Tab A</a>
+            <a href="#" class="tab-link">Tab B</a>
+            <a href="#" class="tab-link">Tab C</a>
+            <a href="#" class="tab-link">Tab D</a>
+        </div>
+        <div class="tab-panel active">
+            <h3>Tab A</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos minus quod alias quia quisquam nesciunt, perferendis, libero repudiandae praesentium quaerat consectetur fugiat reiciendis fuga repellendus veritatis cum minima aspernatur neque.
+            </p>
+        </div>
+        <div class="tab-panel">
+            <h3>Tab B</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro consequatur quod dolor. Ipsum, quisquam provident. Dignissimos, debitis? Officia praesentium porro reprehenderit explicabo, exercitationem harum vel, natus sapiente inventore hic accusantium?
+            </p>
+        </div>
+        <div class="tab-panel">
+            <h3>Tab C</h3>
+            <p>
+                建議研發因此我的心，加入時間採訪研發靈活，模樣分鐘可惜複製全部此時聽說對付主題奇怪進度第一章廣場加盟，推出類型將會信號漂亮性質並在大型，區別攝影浪漫，各種可是部分擁有再次國語點頭，還沒哪些內部睡覺，身體焦點程式健康工人投票，插入凱文複雜，方便不懂，彼此教。            
+            </p>
+        </div>
+        <div class="tab-panel">
+            <h3>Tab D</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos minus quod alias quia quisquam nesciunt, perferendis, libero repudiandae praesentium quaerat consectetur fugiat reiciendis fuga repellendus veritatis cum minima aspernatur neque.
+            </p>
+            <img src="https://picsum.photos/id/44/600" alt="">
+        </div>
+    </div>
+</body>
+</html>
