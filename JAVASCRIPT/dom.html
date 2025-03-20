@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: #f00;
+            background-color: pink;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <h2 id="title">DOM document object model</h2>
+    <p class="content">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, nostrum?
+    </p>
+    <ul>
+        <li class="item">list</li>
+        <li class="item">list</li>
+        <li class="item">list</li>
+        <li class="item">list</li>
+    </ul>
+    <script>
+        // getElement -> HTMLCollections 元素集合
+        // let title = document.getElementById('title');
+        // let contents = document.getElementsByClassName('content');
+        // let content = document.getElementsByClassName('content')[0];
+        // let items = document.getElementsByClassName('item');
+        // let lis = document.getElementsByTagName('li');
+        // items = Array.from(items);
+        // lis = [...lis];
+        // console.log(contents[0]);
+
+        // querySelector -> NodeList 節點列表
+
+        let title = document.querySelector('#title');
+        let content = document.querySelector('.content');
+        let contents = document.querySelectorAll('.content');
+        let item = document.querySelector('.item')
+        let items = document.querySelectorAll('.item')
+        let li = document.querySelector('li');
+        let lis = document.querySelectorAll('li');
+
+        items = Array.from(items)
+        lis = [...lis]; 
+
+        // title.style.color = 'red';
+        // title.style.backgroundColor = '#098';
+        // title.style.padding = '15px';
+
+        title.classList.add('active');
+
+        for(let data of items){
+            console.log(data);
+            // data.style.color = 'red';
+            data.classList.add('active')
+        }
+    </script>
+</body>
+</html>

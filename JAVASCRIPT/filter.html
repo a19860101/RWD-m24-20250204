@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" >
+    <ul>
+        <li class="item">烏龍綠茶</li>
+        <li class="item">錫蘭紅茶</li>
+        <li class="item">原鄉四季</li>
+        <li class="item">嚴選高山茶</li>
+        <li class="item">特級綠茶</li>
+        <li class="item">極品菁茶</li>
+        <li class="item">特選普洱</li>
+    </ul>
+    <script>
+        let input = document.querySelector('#input')
+        let items = document.querySelectorAll('.item');
+        input.onkeyup = () => {
+            for(let item of items){
+                if(item.textContent.indexOf(input.value) > -1){
+                    item.style.display = ''
+                }else{
+                    item.style.display = 'none'
+                }
+            }
+        }
+    </script>
+</body>
+</html>

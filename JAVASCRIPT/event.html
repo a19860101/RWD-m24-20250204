@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            transition:300ms;
+        }
+        .active {
+            color: #1fe5ff;
+            background-color: #02507e;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn add" >Add</button>
+    <button class="btn remove" >Remove</button>
+    <button class="btn toggle" >Toggle</button>
+    <div class="container">
+        <h2>title</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quaerat repellendus culpa corporis soluta magni. Et, dignissimos necessitatibus quidem tempore tenetur natus cupiditate! Adipisci, culpa corporis ipsum ut aliquam tenetur!
+        </p>
+    </div>
+    <script>
+        let add = document.querySelector('.add');
+        let remove = document.querySelector('.remove');
+        let toggle = document.querySelector('.toggle');
+        let container = document.querySelector('.container')
+        // console.log(btn)
+
+        add.onclick = () => {
+            container.classList.add('active')
+        }
+        remove.onclick = () => {
+            container.classList.remove('active')
+        }
+        toggle.onclick = () => {
+            container.classList.toggle('active')
+        }
+        
+        // add.onclick = function(){
+        //     document.querySelector('.container').classList.add('active')
+        // }
+        // add.onclick = active;
+
+        // function active(){
+        //     document.querySelector('.container').classList.add('active')
+        // }
+
+        // add.addEventListener('click',function(){
+        //     document.querySelector('.container').classList.add('active')
+        // })
+        // add.addEventListener('click',active)
+    </script>
+</body>
+</html>
