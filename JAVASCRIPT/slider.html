@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+        .slider {
+            width: 1200px;
+            aspect-ratio: 16 / 9;
+            margin-inline: auto;
+            position: relative;
+            .slider-item {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                visibility: hidden;
+                /* z-index: -1; */
+                transition: 600ms;
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                    /* z-index: 1; */
+                }
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+                
+            }
+            .slider-nav {
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                bottom: 0;
+                translate:0 100%;
+            }
+            .slider-dots {
+                background-color: #00000041;
+                backdrop-filter: blur(10px);
+                position: absolute;
+                width: 100%;
+                display: flex;
+                padding: 20px;
+                bottom: 0;
+                justify-content: center;
+                gap: 10px;
+                .slider-dot {
+                    width: 15px;
+                    height: 15px;
+                    background-color: #2e89ff;
+                    border-radius: 50%;
+                    &.active {
+                        background-color: #ffdb39;
+                    }
+                }
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slider-item active">
+            <img src="https://picsum.photos/id/44/1200/800" alt="">
+        </div>
+        <div class="slider-item">
+            <img src="https://picsum.photos/id/14/1200/800" alt="">
+        </div>
+        <div class="slider-item">
+            <img src="https://picsum.photos/id/24/1200/800" alt="">
+        </div>
+        <div class="slider-item">
+            <img src="https://picsum.photos/id/34/1200/800" alt="">
+        </div>
+        <div class="slider-item">
+            <img src="https://picsum.photos/id/64/1200/800" alt="">
+        </div>
+        <div class="slider-item">
+            <img src="https://picsum.photos/id/54/1200/800" alt="">
+        </div>
+        <div class="slider-item">
+            <img src="https://picsum.photos/id/84/1200/800" alt="">
+        </div>
+        <div class="slider-nav">
+            <a href="#" class="slider-prev"><i class="fa-solid fa-chevron-left fa-2x"></i></a>
+            <a href="#" class="slider-next"><i class="fa-solid fa-chevron-right fa-2x"></i></a>
+        </div>
+        <div class="slider-dots">
+        </div>
+    </div>
+    <script>
+        let sliderItems = document.querySelectorAll('.slider-item');
+        let total = sliderItems.length;
+        let currentIndex = 0;
+        let timeout = 6000;
+
+        let prev = document.querySelector('.slider-prev');
+        let next = document.querySelector('.slider-next');
+
+        prev.onclick = () => slider(-1);
+        // next.onclick = slider;
+
+        next.onclick = slider;
+    
+        // 設定循環
+        function slider(direction){
+            // if(currentIndex === total - 1){
+            //     currentIndex = 0;
+            // }else{
+            //     currentIndex++;
+            // }
+            if(direction === -1){
+                currentIndex = currentIndex === 0 ? total : currentIndex;
+                currentIndex = (currentIndex - 1) % total;
+            }else{
+                currentIndex = (currentIndex + 1) % total;
+                console.log(currentIndex);
+            }
+
+            switchImage();
+            resetTimer();
+            switchDot()
+
+        }
+
+        // 切換圖片
+        function switchImage(){
+            document.querySelector('.slider-item.active').classList.remove('active');
+            sliderItems[currentIndex].classList.add('active');
+        }
+
+        // 產生dot
+        for(let i=0; i<total; i++){
+            // console.log(i)
+            let dot = document.createElement('span');
+            document.querySelector('.slider-dots').append(dot);
+            dot.classList.add('slider-dot');
+            dot.dataset.index = i;
+        }
+
+        // 設定dot功能
+        let dots = document.querySelectorAll('.slider-dot');
+        dots[0].classList.add('active');
+        for(let dot of dots){
+            dot.onclick = e => {
+                currentIndex = Number(e.target.dataset.index);
+                switchImage();
+                resetTimer();
+                switchDot()
+            }
+        }
+
+        //切換dot樣式
+        function switchDot(){
+            document.querySelector('.slider-dot.active').classList.remove('active');
+            dots[currentIndex].classList.add('active');
+        }
+
+        // 設定計時器
+        let timer = setInterval(slider,timeout)
+        function resetTimer(){
+            clearInterval(timer)
+            timer = setInterval(slider,timeout)
+        }
+    </script>
+</body>
+</html>
