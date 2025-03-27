@@ -16,13 +16,19 @@
             /* display: grid;
             place-content: center;
             height: 100vh; */
+
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         .weather-box {
             position: fixed;
             inset:0;
             margin: auto;
             display: grid;
-            background-color: #ccc;
+            background-color: #ffffff77;
+            backdrop-filter: blur(8px);
             grid-template-columns: repeat(2,1fr);
             width: 200px;
             height: fit-content;
@@ -50,9 +56,31 @@
             padding: 10px;
             grid-column: span 2;
         }
+        .search {
+            padding: 20px;
+            bottom: 0px;
+            position: fixed;
+            width: fit-content;
+            height: fit-content;
+            background-color: #222;
+            border-radius: 10px;
+            display: flex;
+            inset: 500px 0 0 0;
+            margin: auto;
+            gap:10px;
+            >* {
+                padding: 10px;
+                border-radius: 6px;
+                border: 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="search">
+        <input type="text" id="city" placeholder="請輸入城市">
+        <button id="btn">Search</button>
+    </div>
     <div class="weather-box">
         <div class="temp"></div>
         <div class="icon">
@@ -62,20 +90,32 @@
         <div class="desc"></div>
     </div>
     <script>
-        let url = 'https://api.openweathermap.org/data/2.5/weather?q=bangkok&lang=zh_TW&units=metric&appid=b1ecbccd638b763d489602917ba47cc3'
-    
-        fetch(url)
-        .then(res=>res.json())
-        .then(data => {
-            //  https://openweathermap.org/img/wn/10d@2x.png
-            console.log(data)
-            document.querySelector('.temp').innerHTML = `${data.main.temp}&deg;C`
-            document.querySelector('.temp-max').innerHTML = data.main.temp_max
-            document.querySelector('.temp-min').innerHTML = data.main.temp_min
-            document.querySelector('.icon').innerHTML = `<img src=" https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`
-            // document.querySelector('.temp').append(data.main.temp)
-            document.querySelector('.desc').textContent = data.weather[0].description
-        })
+        let btn = document.querySelector('#btn')
+        btn.onclick = () => {
+            let city = document.querySelector('#city').value;
+            getWeather(city)
+        }
+
+
+       
+        function getWeather(city){
+             let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=zh_TW&units=metric&appid=b1ecbccd638b763d489602917ba47cc3`
+            fetch(url)
+            .then(res=>res.json())
+            .then(data => {
+                //  https://openweathermap.org/img/wn/10d@2x.png
+                console.log(data)
+                document.querySelector('.temp').innerHTML = `${data.main.temp}&deg;C`
+                document.querySelector('.temp-max').innerHTML = data.main.temp_max
+                document.querySelector('.temp-min').innerHTML = data.main.temp_min
+                document.querySelector('.icon').innerHTML = `<img src=" https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`
+                // document.querySelector('.temp').append(data.main.temp)
+                document.querySelector('.desc').textContent = data.weather[0].description
+
+                let body = document.querySelector('body')
+                body.style.backgroundImage = `url(images/${data.weather[0].icon}.jpg)`
+            })
+        }
     </script>
 
 </body>
