@@ -4,17 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .item {
+            width: 20%;
+            background-color: #ccc;
+            padding: 15px;
+            .aqi {
+                color: #f00;
+                font-weight: bold;
+            }
+        }
+
+    </style>
 </head>
 <body>
+    <div class="container">
+
+    </div>
     <script>
-        // const url = 'https://data.moenv.gov.tw/api/v2/aqx_p_432?api_key=58d6040c-dca7-407f-a244-d0bfdfa8144a&limit=1000&sort=ImportDate%20desc&format=JSON';
+        let container = document.querySelector('.container')
+
+
+        const url = 'https://data.moenv.gov.tw/api/v2/aqx_p_432?api_key=58d6040c-dca7-407f-a244-d0bfdfa8144a&limit=1000&sort=ImportDate%20desc&format=JSON';
         // const url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
-        const url = 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&IsTransData=1'
+        // const url = 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&IsTransData=1'
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            let records = data.records;
+            for(let record of records){
+                console.log(record)
+                let aqi = document.createElement('div')
+                aqi.classList.add('aqi')
+                aqi.append('AQI:'+record.aqi)
+
+                let sitename = document.createElement('div')
+                // sitename.append('站點名稱:'+record.sitename)
+                sitename.append(`站點名稱${record.sitename}`)
+
+                // sitename.innerHTML = '<b>站點名稱:'+record.sitename+'<b>'
+                sitename.innerHTML = `站點名稱${record.sitename}`
+                // sitename.textContent = '站點名稱:'+record.sitename
+
+                let item = document.createElement('div')
+                item.classList.add('item')
+                item.append(aqi,sitename)
+
+                container.append(item)
+            }
         })
+
+        let div = document.createElement('div')
+        // div.append('test')
+        // container.append(div)
+        // container.append('<div>hello</div>')
+        // container.innerHTML = '<h1>innerHTML</h1>'
+        // container.textContent = '<h1>innerHTML</h1>'
+        // document.write('<div>test</div>')
     </script>
 </body>
 </html>
