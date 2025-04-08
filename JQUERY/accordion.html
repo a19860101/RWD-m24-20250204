@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .accordion {
+            width: 600px;
+            margin-inline: auto;
+            h2 {
+                padding: 10px;
+                background-color: #ffec95;
+                border-bottom: 2px solid #6d6540;
+            }
+            p {
+                padding: 30px;
+                background-color: #fff3be;
+                display: none;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <h2>Title 1</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat nesciunt doloribus accusantium ab impedit molestiae alias! Natus laborum nam accusantium, facilis blanditiis similique voluptas explicabo corporis error quaerat veritatis.
+        </p>
+        <h2>Title 2</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, illo harum! Omnis dolorum quas quod eius distinctio eum perspiciatis natus deleniti autem, at illo soluta qui blanditiis et delectus inventore ipsa tempora. Soluta aspernatur dolorem, ipsam iste, repellendus sequi doloremque vitae voluptas earum nostrum porro labore rem voluptatum quas hic recusandae consectetur voluptatem. Magnam, corporis molestias. Consequuntur, vero beatae. Incidunt.
+        </p>
+        <h2>Title 3</h2>
+        <p>
+            說出演出經過一年適合大學就能數字把我演唱不敢，執行環境，房產管理系統對她開發者大會成立，推薦使用收入，檢索降低傳播跟我也能成長博士辦理協議，新聞首頁遵守資產，鎖定對手關注表面黑暗輸入讀者裝修演唱會生物管理系統，成本交給環節之類物品主機主板，訓練哪裡所說供。
+        </p>
+        <h2>Title 4</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut dolorum quas repudiandae itaque quibusdam esse voluptates, tempora eaque doloremque nihil dolor earum reprehenderit porro, laborum perspiciatis praesentium magnam beatae! Vitae.
+        </p>
+    </div>
+    <script>
+        $(function(){
+            $('h2').click(function(){
+                // console.log($(this).text())
+                // $(this).next().toggle(500);
+                $(this).next().slideToggle(300);
+                // $(this).next().fadeToggle(300);
+            })
+        })
+    </script>
+</body>
+</html>
