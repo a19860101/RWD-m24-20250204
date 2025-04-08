@@ -18,6 +18,14 @@
                 padding: 10px;
                 background-color: #ffec95;
                 border-bottom: 2px solid #6d6540;
+                transition: 400ms;
+                cursor: pointer;
+                &.active {
+                    background-color: #38a5ff;
+                }
+                &:hover {
+                    background-color: #38a5ff;
+                }
             }
             p {
                 padding: 30px;
@@ -54,6 +62,8 @@
                 // $(this).next().toggle(500);
                 $(this).next().slideToggle(300);
                 // $(this).next().fadeToggle(300);
+
+                $(this).toggleClass('active')
             })
         })
     </script>

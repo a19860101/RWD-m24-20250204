@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        img {
+            display: block;
+        }
+        .gallery {
+            width: 600px;
+            margin-inline: auto;
+        }
+        .gallery-container {
+            display: flex;
+            img {
+                width: 20%;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="https://picsum.photos/id/98/600" alt="" class="main">
+        <div class="gallery-container">
+            <img src="https://picsum.photos/id/98/600" alt="" class="thumbnail">
+            <img src="https://picsum.photos/id/18/600" alt="" class="thumbnail">
+            <img src="https://picsum.photos/id/28/600" alt="" class="thumbnail">
+            <img src="https://picsum.photos/id/38/600" alt="" class="thumbnail">
+            <img src="https://picsum.photos/id/48/600" alt="" class="thumbnail">
+        </div>
+    </div>
+    <script>
+        // let thumbnails = document.querySelectorAll('.thumbnail')
+        // let main = document.querySelector('.main');
+        // for(let thumb of thumbnails){
+        //     thumb.onclick = function(e){
+        //         let path = e.target.getAttribute('src');
+        //         main.setAttribute('src',path);
+
+        //     }
+        // }
+        $(function(){
+            $('.thumbnail').click(function(){
+                let path = $(this).attr('src')
+                $('.main').attr('src',path)
+            })
+        })
+    </script>
+</body>
+</html>
