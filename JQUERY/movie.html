@@ -35,6 +35,7 @@
                     },
                     success:function(data){
                         console.log(data)
+                        data.Search.sort((b,a)=>a.Year - b.Year)
                         for(m of data.Search){
                             let result = `
                                 <h2>${m.Title}</h2>
