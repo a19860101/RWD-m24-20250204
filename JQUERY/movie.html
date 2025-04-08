@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h2>請輸入電影名稱</h2>
+    <input type="text" id="input">
+    <button class="btn">搜尋</button>
+    <div class="movie">
+
+    </div>
+    <script>
+        // 18456e59
+        $(function(){
+            $('.btn').click(function(){
+                $('.movie').empty();
+                let input = $('#input').val();
+                getMovie(input)
+            })
+
+            function getMovie(input){
+                let url = 'http://www.omdbapi.com/'
+
+                $.ajax({
+                    url: url,
+                    data:{
+                        apikey: '18456e59',
+                        type: 'movie',
+                        s: input
+                    },
+                    success:function(data){
+                        console.log(data)
+                        for(m of data.Search){
+                            let result = `
+                                <h2>${m.Title}</h2>
+                                <div>上映年分 ${m.Year}</div>
+                                <div><img src="${m.Poster}" width='500'></div>
+                            `
+                            $('.movie').append(result);
+                        }
+                    },
+                    error:function(){
+                        console.log('error')
+                    }
+                })
+            }
+            
+        })
+    </script>
+</body>
+</html>
