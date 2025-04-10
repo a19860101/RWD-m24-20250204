@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <h2 v-if="onsale">特價中</h2>
+        <div>{{author}}</div>
+        <ul>
+            <li v-for="data,idx of datas">{{idx+1}} -- {{data}}</li>
+        </ul>
+        <ul>
+            <li v-for="food in foods">
+                {{food.name}} : {{food.price}}元
+            </li>
+        </ul>
+        <input type="text" v-model="qty">
+        <div>目前庫存:{{qty}}</div>
+        <div v-if="qty > 5">熱賣中</div>
+        <div v-else-if="qty > 0">低庫存</div>
+        <div v-else>補貨中</div>
+
+        <img v-bind:src="cover" alt="">
+        <img :src="cover" alt="">
+    </div>
+
+    <script>
+        Vue.createApp({
+            data:function(){
+                return {
+                    title: 'Hello Vue 123',
+                    author: 'John',
+                    cover: 'https://picsum.photos/id/29/400',
+                    qty: 0,
+                    onsale: false,
+                    datas: ['apple','banana','cat'],
+                    foods: [
+                        {
+                            name: '牛肉麵',
+                            price: 120
+                        },{
+                            name: '滷肉飯',
+                            price:50
+                        },
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
