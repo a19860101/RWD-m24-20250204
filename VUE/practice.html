@@ -25,7 +25,7 @@
             <img :src="`images/${products[currentIndex].image}`" alt="" width="600">
         </div>
         <div class="colors">
-            <div v-for="p in products" class="colorBox" :style="{backgroundColor:p.colorCode}"></div>
+            <div v-for="p,idx in products" @click="changeColor(idx)" class="colorBox" :style="{backgroundColor:p.colorCode}"></div>
         </div>
     </div>
     <script>
@@ -61,6 +61,11 @@
                             colorCode: '#00f'
                         },
                     ]
+                }
+            },
+            methods:{
+                changeColor(idx){
+                    this.currentIndex =  idx
                 }
             }
         }).mount('#app')
