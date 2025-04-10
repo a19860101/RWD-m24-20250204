@@ -20,9 +20,17 @@
 </head>
 <body>
     <div id="app">
-        <h2>{{title}} - {{products[currentIndex].color}}</h2>
+        <h2>{{title}} - {{current.color}}</h2>
         <div>
-            <img :src="`images/${products[currentIndex].image}`" alt="" width="600">
+            庫存:{{current.qty}}
+        </div>
+        <div>
+            <div v-if="current.qty > 10">熱賣中</div>
+            <div v-else-if="current.qty > 0">低庫存</div>
+            <div v-else>補貨中</div>
+        </div>
+        <div>
+            <img :src="`images/${current.image}`" alt="" width="600">
         </div>
         <div class="colors">
             <div v-for="p,idx in products" @click="changeColor(idx)" class="colorBox" :style="{backgroundColor:p.colorCode}"></div>
@@ -38,27 +46,32 @@
                         {
                             image:'iphone-16-finish-select-202409-6-1inch-black.webp',
                             color: '黑色',
-                            colorCode: 'black'
+                            colorCode: 'black',
+                            qty: 10,
                         },
                         {
                             image:'iphone-16-finish-select-202409-6-1inch-white.webp',
                             color: '白色',
-                            colorCode: '#eee'
+                            colorCode: '#eee',
+                            qty: 25,
                         },
                         {
                             image:'iphone-16-finish-select-202409-6-1inch-pink.webp',
                             color: '粉紅色',
-                            colorCode: 'pink'
+                            colorCode: 'pink',
+                            qty: 7,
                         },
                         {
                             image:'iphone-16-finish-select-202409-6-1inch-teal.webp',
                             color: '湖水綠',
-                            colorCode: 'teal'
+                            colorCode: 'teal',
+                            qty: 3,
                         },
                         {
                             image:'iphone-16-finish-select-202409-6-1inch-ultramarine.webp',
                             color: '湛海藍',
-                            colorCode: '#00f'
+                            colorCode: '#00f',
+                            qty: 23,
                         },
                     ]
                 }
@@ -66,6 +79,11 @@
             methods:{
                 changeColor(idx){
                     this.currentIndex =  idx
+                }
+            },
+            computed:{
+                current(){
+                    return this.products[this.currentIndex]
                 }
             }
         }).mount('#app')
