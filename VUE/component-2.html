@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <!-- 
+        Component Local Registration
+    -->
+    <div id="app">
+        <my-title></my-title>
+        <my-nav></my-nav>
+    </div>
+    <template id="my-nav">
+        <nav>
+            <a href="#" v-for="link in links">{{link}}</a>
+        </nav>
+    </template>
+    <script>
+        Vue.createApp({
+            components:{
+                'my-title':{
+                    template:'<h1>{{title}}</h1>',
+                    data(){
+                        return {
+                            title: 'Hello Component'
+                        }
+                    }
+                },
+                'my-nav': {
+                    template:'#my-nav',
+                    data(){
+                        return {
+                            links:['link 1','link 2','link 3']
+                        }
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
