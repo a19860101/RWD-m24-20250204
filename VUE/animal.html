@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <form action="">
+                <select name="place" id="place">
+                    <option model="p" v-for="p in variety">{{p}}</option>
+                </select>
+                <input type="submit" value="搜尋">
+            </form>
+            <div class="animal" v-for="animal in animals">
+                <!-- <div><img :src="animal.album_file" alt="" width="200"></div> -->
+                <div>品種:{{animal.animal_Variety}}</div>
+                <div>顏色:{{animal.animal_colour}}</div>
+                <div>收容所:{{animal.shelter_name}}</div>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    animals: []
+                }
+            },
+            computed:{
+                kind(){
+                    return [...new Set(this.animals.map(data => data.animal_kind))]
+                },
+                variety(){
+                    return [...new Set(this.animals.map(data => data.animal_Variety))]
+                },
+                place(){
+                    return [...new Set(this.animals.map(data => data.animal_place))]
+                }
+            },
+            created(){
+                let url = 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&IsTransData=1'
+                fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    this.animals = data
+                })
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
