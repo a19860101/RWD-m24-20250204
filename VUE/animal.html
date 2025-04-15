@@ -10,9 +10,11 @@
 <body>
     <div id="app">
         <div class="container">
-            <form action="">
+            <form action="" method=""  @submit.prevent="getData()">
                 <select name="place" id="place">
-                    <option model="p" v-for="p in variety">{{p}}</option>
+                    <template v-for="p in place">
+                        <option v-bind:value="p">{{p}}</option>
+                    </template>
                 </select>
                 <input type="submit" value="搜尋">
             </form>
@@ -29,7 +31,13 @@
         Vue.createApp({
             data(){
                 return {
-                    animals: []
+                    animals: [],
+                    myPlace: ''
+                }
+            },
+            methods:{
+                getData(){
+                    console.log(this.myPlace)
                 }
             },
             computed:{
