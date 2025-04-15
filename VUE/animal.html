@@ -17,6 +17,12 @@
                         <option v-bind:value="p">{{p}}</option>
                     </template>
                 </select>
+                <select v-model="myVariety">
+                    <option value="">---請選擇品種---</option>
+                    <template v-for="v in getVariety">
+                        <option v-bind:value="v">{{v}}</option>
+                    </template>
+                </select>
                 <input type="submit" value="搜尋">
             </form>
             <div v-if="result.length > 0">共有{{result.length}}筆資料</div>
@@ -28,6 +34,7 @@
             </div>
             
         </div>
+        {{}}
     </div>
     <script>
         Vue.createApp({
@@ -35,13 +42,17 @@
                 return {
                     animals: [],
                     myPlace: '',
+                    myVariety: '',
                     result:''
                 }
             },
             methods:{
                 getData(){
                     // console.log(this.myPlace)
-                    this.result = this.animals.filter(animal=>animal.animal_place === this.myPlace)
+                    this.result = this.animals.filter(animal=>
+                        animal.animal_place === this.myPlace &&
+                        animal.animal_Variety === this.myVariety
+                    )
                 }
             },
             computed:{
@@ -53,6 +64,12 @@
                 },
                 place(){
                     return [...new Set(this.animals.map(data => data.animal_place))]
+                },
+                getPlace(){
+                    return this.animals.filter(data => data.animal_place === this.myPlace)
+                },
+                getVariety(){
+                    return [... new Set(this.getPlace.map(data => data.animal_Variety))]
                 }
             },
             created(){
