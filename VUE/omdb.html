@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <form action="" method="post" @submit.prevent="getMovie()">
+            <input type="text" v-model="s">
+            <input type="submit" value="Search">
+        </form>
+        <div>{{movies}}</div>
+    </div>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    movies:[],
+                    s: 'spider',
+                    apikey: '18456e59',
+                }
+            },
+            methods:{
+                getMovie(){
+                    let url = `http://www.omdbapi.com/?apikey=${this.apikey}&s=${this.s}`
+
+                    fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        this.movies = data
+                    })
+                }
+            },
+            
+        }).mount('#app')
+    </script>
+</body>
+</html>
