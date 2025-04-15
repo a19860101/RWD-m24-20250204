@@ -5,36 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 1200px;
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
+        <form action="" method=""  @submit.prevent="getData()">
+            <select v-model="myPlace">
+                <option value="">---請選擇收容所---</option>
+                <template v-for="p in place">
+                    <option v-bind:value="p">{{p}}</option>
+                </template>
+            </select>
+            <select v-model="myVariety">
+                <option value="">---請選擇品種---</option>
+                <template v-for="v in getVariety">
+                    <option v-bind:value="v">{{v}}</option>
+                </template>
+            </select>
+            <input type="submit" value="搜尋">
+        </form>
+        <div v-if="result.length > 0">共有{{result.length}}筆資料</div>
+
         <div class="container">
-            <form action="" method=""  @submit.prevent="getData()">
-                <select v-model="myPlace">
-                    <option value="">---請選擇收容所---</option>
-                    <template v-for="p in place">
-                        <option v-bind:value="p">{{p}}</option>
-                    </template>
-                </select>
-                <select v-model="myVariety">
-                    <option value="">---請選擇品種---</option>
-                    <template v-for="v in getVariety">
-                        <option v-bind:value="v">{{v}}</option>
-                    </template>
-                </select>
-                <input type="submit" value="搜尋">
-            </form>
-            <div v-if="result.length > 0">共有{{result.length}}筆資料</div>
+           
             <div class="animal" v-for="animal in result">
-                <!-- <div><img :src="animal.album_file" alt="" width="200"></div> -->
+                <div><img :src="animal.album_file" alt="" width="200"></div>
                 <div>品種:{{animal.animal_Variety}}</div>
                 <div>顏色:{{animal.animal_colour}}</div>
                 <div>收容所:{{animal.shelter_name}}</div>
             </div>
             
         </div>
-        {{}}
+        {{isLoading ? 'Loading...':''}}
     </div>
     <script>
         Vue.createApp({
@@ -43,6 +58,7 @@
                     animals: [],
                     myPlace: '',
                     myVariety: '',
+                    isLoading: true,
                     result:''
                 }
             },
@@ -75,9 +91,14 @@
             created(){
                 let url = 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&IsTransData=1'
                 fetch(url)
-                .then(response => response.json())
+                .then(response => {
+                    console.log('Loading')
+                    return response.json()
+                
+                })
                 .then(data => {
                     console.log(data)
+                    this.isLoading = false
                     this.animals = data
                 })
             }
