@@ -35,13 +35,15 @@
             <input type="submit" value="Search">
         </form>
         <div>
-            <a href="#" @click="prevPage()">上一頁</a>
-            <a href="#" @click="nextPage()">下一頁</a>
+            <a href="#" @click="prevPage()" v-if="currentPage != 1">上一頁</a>
+            <a href="#" @click="nextPage()" v-if="currentPage < totalPages">下一頁</a>
         </div>
+        <div>共有{{total}}筆資料 {{totalPages}}頁</div>
         <div class="container">
             <div v-for="movie in movies" class="movie">
                 <div class="poster">
-                    <img :src="movie.Poster" alt="">
+                    <img v-if="movie.Poster != 'N/A' " :src="movie.Poster" alt="">
+                    <img v-else src="https://placehold.co/400x600?text=N/A" alt="">
                 </div>
                 <div class="title">
                     {{movie.Title}} / {{movie.Year}}
@@ -60,15 +62,18 @@
                     s: 'spider',
                     apikey: '18456e59',
                     currentPage: 1,
+                    total:0
                 }
             },
             methods:{
                 getMovie(){
-                    let url = this.apiURL
+                    this.currentPage = 1;
+                    let url = this.apiURL;
                     fetch(url)
                     .then(res => res.json())
                     .then(data => {
                         this.movies = data.Search
+                        this.total = data.totalResults
                     })
                 },
                 nextPage(){
@@ -97,6 +102,9 @@
             computed:{
                 apiURL(){
                     return `http://www.omdbapi.com/?apikey=${this.apikey}&s=${this.s}&page=${this.currentPage}`
+                },
+                totalPages(){
+                    return Math.ceil(this.total / 10)
                 }
             }
             
