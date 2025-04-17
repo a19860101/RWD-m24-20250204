@@ -34,6 +34,10 @@
             <input type="text" v-model="s">
             <input type="submit" value="Search">
         </form>
+        <div>
+            <a href="#" @click="prevPage()">上一頁</a>
+            <a href="#" @click="nextPage()">下一頁</a>
+        </div>
         <div class="container">
             <div v-for="movie in movies" class="movie">
                 <div class="poster">
@@ -51,23 +55,48 @@
     <script>
         Vue.createApp({
             data(){
-                return {
+                return {                                                                                                            
                     movies:[],
                     s: 'spider',
                     apikey: '18456e59',
+                    currentPage: 1,
                 }
             },
             methods:{
                 getMovie(){
-                    let url = `http://www.omdbapi.com/?apikey=${this.apikey}&s=${this.s}`
-
+                    let url = this.apiURL
                     fetch(url)
                     .then(res => res.json())
                     .then(data => {
                         this.movies = data.Search
                     })
+                },
+                nextPage(){
+                    this.currentPage += 1;
+                    let url = `${this.apiURL}&page=${this.currentPage}`
+                    fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        this.movies = data.Search
+                        console.log(this.movies)
+                    })
+                },
+                prevPage(){
+                    this.currentPage -= 1;
+                    let url = `${this.apiURL}&page=${this.currentPage}`
+                    fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        this.movies = data.Search
+                        console.log(this.movies)
+                    })
                 }
             },
+            computed:{
+                apiURL(){
+                    return `http://www.omdbapi.com/?apikey=${this.apikey}&s=${this.s}`
+                }
+            }
             
         }).mount('#app')
     </script>
