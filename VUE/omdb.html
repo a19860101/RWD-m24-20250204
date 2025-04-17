@@ -73,7 +73,8 @@
                 },
                 nextPage(){
                     this.currentPage += 1;
-                    let url = `${this.apiURL}&page=${this.currentPage}`
+                    let url = this.apiURL
+                    // let url = `${this.apiURL}&page=${this.currentPage}`
                     fetch(url)
                     .then(res => res.json())
                     .then(data => {
@@ -83,7 +84,8 @@
                 },
                 prevPage(){
                     this.currentPage -= 1;
-                    let url = `${this.apiURL}&page=${this.currentPage}`
+                    let url = this.apiURL
+                    // let url = `${this.apiURL}&page=${this.currentPage}`
                     fetch(url)
                     .then(res => res.json())
                     .then(data => {
@@ -94,7 +96,7 @@
             },
             computed:{
                 apiURL(){
-                    return `http://www.omdbapi.com/?apikey=${this.apikey}&s=${this.s}`
+                    return `http://www.omdbapi.com/?apikey=${this.apikey}&s=${this.s}&page=${this.currentPage}`
                 }
             }
             
