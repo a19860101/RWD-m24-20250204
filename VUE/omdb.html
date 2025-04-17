@@ -35,10 +35,15 @@
             <input type="submit" value="Search">
         </form>
         <div>
+            <div>
+                <a href="#" v-for="p in totalPages" @click="getMovie(p)">{{p}}</a>
+            </div>
+            <a href="#" @click="getMovie(1)" v-if="total">第一頁</a>
             <a href="#" @click="prevPage()" v-if="currentPage != 1">上一頁</a>
             <a href="#" @click="nextPage()" v-if="currentPage < totalPages">下一頁</a>
+            <a href="#" @click="getMovie(totalPages)"v-if="total">最末頁</a>
         </div>
-        <div>共有{{total}}筆資料 {{totalPages}}頁</div>
+        <div v-if="total > 0">共有{{total}}筆資料 {{totalPages}}頁</div>
         <div class="container">
             <div v-for="movie in movies" class="movie">
                 <div class="poster">
@@ -66,8 +71,8 @@
                 }
             },
             methods:{
-                getMovie(){
-                    this.currentPage = 1;
+                getMovie(p){
+                    this.currentPage = p ? p : 1;
                     let url = this.apiURL;
                     fetch(url)
                     .then(res => res.json())
