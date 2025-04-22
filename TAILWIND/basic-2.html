@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        .test {
+            @apply w-25 h-25 bg-blue-200
+        }
+        .my-container {
+            @apply container mx-auto flex-wrap bg-red-200
+        }
+    </style>
+</head>
+<body>
+    <div class="my-container">
+        <h1>hello</h1>
+    </div>
+    <div class="test"></div>
+    <div class="bg-[#098] w-[138px] aspect-[4/3]">hello tailwind</div>
+</body>
+</html>
